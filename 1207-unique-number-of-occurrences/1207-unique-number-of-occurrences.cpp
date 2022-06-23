@@ -1,31 +1,19 @@
 class Solution {
 public:
     bool uniqueOccurrences(vector<int>& arr) {
-        int n=arr.size();
-        vector <int> store_count(n,0);
-        std::sort(arr.begin(), arr.end());
-        int j=0,count=0;
+        unordered_map<int,int> m;  
+        unordered_set<int> count;
         
-        for(int i=1;i<n;i++)
+        for(auto i:arr)
         {
-            if (arr[i]==arr[i-1] || (i+1)>n)
-            {
-                store_count[j]+=1;
-            }
-            else
-            {
-                j++;
-                count++;
-        
-            }
+            m[i]++;     //key of map becomes the element itself and the value is the frequency of that particular element since the map cannot have duplicate values.
         }
-        store_count.resize(count);
-        std::sort(store_count.begin(),store_count.end());
-        for(int i=0;i<store_count.size();i++)
+        for (auto i : m)
         {
-            if(store_count[i]==store_count[i+1])
-                return false;
+            count.insert(i.second);     
+            //storing the frequency of each element in the set named count.
+            //since set only stores unique elements so if one of the values is duplicate, it rejects it.
         }
-        return true;
+        return count.size()==m.size();
     }
 };
