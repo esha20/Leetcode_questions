@@ -24,12 +24,16 @@ public:
         int len=0;
         while(temp)
         {
+            //to find out the length of the ll
             temp=temp->next;
             len++;
         }
         
         if(len<k)
         {
+        //if the no. of rotations needed is more than length then,
+        //we only have to rotate the number that comes as reminder when k is div by no of nodes.
+        //since if there are 3 nodes and k=4 then the result is same as k=1 because after 3                 rotations, the ll returns to its original state
         k=k%len;
         }
         
