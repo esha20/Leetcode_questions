@@ -15,4 +15,5 @@ public:
         }
         return false;
     }
+    //we could have also used the map with int and bool values , ie if the number has occured once , mark it true and at last check if there are true bool values for integers of array 
 };
