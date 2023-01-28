@@ -11,12 +11,13 @@
  */
 class Solution {
 public:
-    vector<int> ans;    //declaring public vector
+    vector<int> ans;    //declaring vector to store the solution
     
     void inorder(TreeNode* root){
         if(root==NULL)
             return;     //node is null means no data so just return
         
+        //the method is left node right i.e. first traverse to the left nodes and then print the node then omve to right
         inorder(root->left);
         ans.push_back(root->val);
         inorder(root->right);
