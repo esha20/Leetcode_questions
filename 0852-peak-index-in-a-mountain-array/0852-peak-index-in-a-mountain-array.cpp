@@ -22,6 +22,7 @@ public:
             mid = start+(end-start)/2;
         }
         //returning the index of the peak ele, we could also return end because now the start and end both point to same ele.
-        return end;
+        return start;
+        //or return end;
     }
 };
